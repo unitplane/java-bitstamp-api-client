@@ -1,4 +1,4 @@
-package com.company.websockets.observers;
+package com.company.bitstampclient.observers;
 
 public interface CloseObserver {
 

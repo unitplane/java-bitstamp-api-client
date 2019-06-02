@@ -1,7 +1,5 @@
-package com.company;
+package com.company.bitstampclient;
 
-import com.company.websockets.BitstampConnector;
-import com.company.websockets.BitstampConnectorEndpoint;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

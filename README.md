@@ -1,4 +1,5 @@
-#Java Bitstamp API Client
+Java Bitstamp API Client
+========================
 
 This is a [Bitstamp WebSockets API v2](https://www.bitstamp.net/websocket/v2/) client.
  

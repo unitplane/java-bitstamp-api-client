@@ -1,7 +1,6 @@
-package com.company;
+package com.company.bitstampclient;
 
-import com.company.websockets.BitstampConnectorEndpoint;
-import com.company.websockets.observers.ConnectionOpenObserver;
+import com.company.bitstampclient.observers.ConnectionOpenObserver;
 
 public class ConnectionOpen implements ConnectionOpenObserver {
 
@@ -9,6 +8,8 @@ public class ConnectionOpen implements ConnectionOpenObserver {
     public void receive() {
 
         BitstampConnectorEndpoint.onLiveTrade("xrpusd", new XrpUsdLiveTrade());
+
+        BitstampConnectorEndpoint.onLiveOrder("xrpusd", new XrpUsdLiveOrder());
 
     }
 }

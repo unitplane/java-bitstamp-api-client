@@ -1,4 +1,4 @@
-package com.company.websockets.messages.subscriptions;
+package com.company.bitstampclient.messages.subscriptions;
 
 import com.google.gson.Gson;
 

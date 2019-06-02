@@ -1,4 +1,4 @@
-package com.company.websockets.messages.livetrades;
+package com.company.bitstampclient.messages.livetrades;
 
 import com.google.gson.Gson;
 

@@ -1,4 +1,4 @@
-package com.company.websockets.messages.livetrades;
+package com.company.bitstampclient.messages.livetrades;
 
 @lombok.Data
 public class LiveTrade {

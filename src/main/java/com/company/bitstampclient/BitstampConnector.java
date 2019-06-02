@@ -1,4 +1,4 @@
-package com.company.websockets;
+package com.company.bitstampclient;
 
 import org.slf4j.LoggerFactory;
 

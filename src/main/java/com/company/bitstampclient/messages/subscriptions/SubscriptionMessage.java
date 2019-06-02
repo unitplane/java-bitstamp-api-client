@@ -1,6 +1,6 @@
-package com.company.websockets.messages.subscriptions;
+package com.company.bitstampclient.messages.subscriptions;
 
-import com.company.websockets.BitstampConnectorEndpoint;
+import com.company.bitstampclient.BitstampConnectorEndpoint;
 import org.slf4j.LoggerFactory;
 
 import javax.websocket.EncodeException;

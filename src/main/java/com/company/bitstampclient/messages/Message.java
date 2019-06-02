@@ -1,4 +1,4 @@
-package com.company.websockets.messages;
+package com.company.bitstampclient.messages;
 
 import lombok.Data;
 import org.slf4j.LoggerFactory;
