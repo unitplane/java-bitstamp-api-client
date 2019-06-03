@@ -1,6 +1,6 @@
-package com.company.bitstampclient.messages.subscriptions;
+package com.company.bitstampclient.messages.subscription;
 
-import com.company.bitstampclient.BitstampConnectorEndpoint;
+import com.company.bitstampclient.BitstampConnector;
 import org.slf4j.LoggerFactory;
 
 import javax.websocket.EncodeException;
@@ -14,13 +14,13 @@ public class SubscriptionMessage {
     public void subscribeChannel(String channel) throws IOException {
 
         String json = messageAsJson("bts:subscribe", channel);
-        BitstampConnectorEndpoint.getSession().getBasicRemote().sendText(json);
+        BitstampConnector.getSession().getBasicRemote().sendText(json);
     }
 
     public void unsubscribeChannel(String channel) throws IOException {
 
         String json = messageAsJson("bts:unsubscribe", channel);
-        BitstampConnectorEndpoint.getSession().getBasicRemote().sendText(json);
+        BitstampConnector.getSession().getBasicRemote().sendText(json);
     }
 
     private String messageAsJson(String event, String channel) {

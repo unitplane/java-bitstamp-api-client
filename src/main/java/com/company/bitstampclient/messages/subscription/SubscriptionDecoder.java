@@ -1,4 +1,4 @@
-package com.company.bitstampclient.messages.subscriptions;
+package com.company.bitstampclient.messages.subscription;
 
 import com.google.gson.Gson;
 

@@ -1,9 +1,9 @@
 package com.company.bitstampclient;
 
 import com.company.bitstampclient.messages.Message;
-import com.company.bitstampclient.messages.liveorders.LiveOrder;
-import com.company.bitstampclient.messages.livetrades.LiveTrade;
-import com.company.bitstampclient.messages.subscriptions.SubscriptionMessage;
+import com.company.bitstampclient.messages.liveorder.LiveOrder;
+import com.company.bitstampclient.messages.livetrade.LiveTrade;
+import com.company.bitstampclient.messages.subscription.SubscriptionMessage;
 import com.company.bitstampclient.observers.*;
 import com.google.gson.Gson;
 import org.slf4j.LoggerFactory;
@@ -21,8 +21,6 @@ public class BitstampConnectorEndpoint {
     private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(BitstampConnectorEndpoint.class);
 
     private Gson gson = new Gson();
-
-    private static Session session;
 
     private static Set<String> liveTradePairSubscriptions = new HashSet<>();
     private static Set<String> liveOrderPairSubscriptions = new HashSet<>();
@@ -83,7 +81,7 @@ public class BitstampConnectorEndpoint {
 
         LOG.debug("Connected to endpoint: {}", session.getBasicRemote());
 
-        BitstampConnectorEndpoint.session = session;
+        BitstampConnector.setSession(session);
 
         for (ConnectionOpenObserver observer : openObservers) {
             observer.receive();
@@ -112,8 +110,8 @@ public class BitstampConnectorEndpoint {
                 break;
 
             case "order_created":
-            case "order_deleted":
             case "order_changed":
+            case "order_deleted":
 
                 LiveOrder order = gson.fromJson(jsonMessage, LiveOrder.class);
                 for (LiveOrderObserver observer : liveOrderObservers) {
@@ -122,6 +120,10 @@ public class BitstampConnectorEndpoint {
                 break;
 
             case "bts:subscription_succeeded":
+                break;
+
+            case "bts:request_reconnect":
+                BitstampConnector.reconnect();
                 break;
 
             default:
@@ -138,14 +140,12 @@ public class BitstampConnectorEndpoint {
 
     @OnClose
     public void eventClose() {
+
         LOG.info("onClose event");
+
         for (CloseObserver observer : closeObservers) {
             observer.receive();
         }
-    }
-
-    public static Session getSession() {
-        return session;
     }
 
 

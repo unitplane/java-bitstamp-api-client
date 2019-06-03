@@ -1,4 +1,4 @@
-package com.company.bitstampclient.messages.liveorders;
+package com.company.bitstampclient.messages.livetrade;
 
 import com.google.gson.Gson;
 
@@ -6,13 +6,13 @@ import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
 
-public class LiveOrderDecoder implements Decoder.Text<LiveOrder> {
+public class LiveTradeDecoder implements Decoder.Text<LiveTrade> {
 
     private static Gson gson = new Gson();
 
     @Override
-    public LiveOrder decode(String s) throws DecodeException {
-        return gson.fromJson(s, LiveOrder.class);
+    public LiveTrade decode(String s) throws DecodeException {
+        return gson.fromJson(s, LiveTrade.class);
     }
 
     @Override

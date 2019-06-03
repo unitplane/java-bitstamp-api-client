@@ -1,4 +1,4 @@
-package com.company.bitstampclient.messages.liveorders;
+package com.company.bitstampclient.messages.liveorder;
 
 import lombok.Data;
 

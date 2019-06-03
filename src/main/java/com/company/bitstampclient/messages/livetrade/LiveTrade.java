@@ -1,4 +1,4 @@
-package com.company.bitstampclient.messages.livetrades;
+package com.company.bitstampclient.messages.livetrade;
 
 @lombok.Data
 public class LiveTrade {
